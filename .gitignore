@@ -1,0 +1,11 @@
+
+# SDCC stuff
+bin/
+*.lnk
+*.lst
+*.map
+*.mem
+*.rel
+*.rst
+*.sym
+*.asm
