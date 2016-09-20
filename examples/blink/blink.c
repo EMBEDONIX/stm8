@@ -1,16 +1,26 @@
-#include "stm8s.h"
+/*
+//BLINK Example for STM8S003F3
 
+//In this example, I assume there are 3 LED's available.
+//PD2, PD3 and PD4
+
+//Remember that PD1 is the SWIM pin, so if we have an LED between this pin
+//and ground, we can not flash the chip!
+*/
+
+#include "stm8s003.h"
+
+/**
+*@brief Clock init routin.
+*/
 void init_clk() {
-	CLK_CKDIVR = 0x00; //16MHZ
-	CLK_PCKENR1 = 0xFF; // Enable peripherals
+	CLK_CKDIVR = 0x00; //set clock to 16MHZ
 }
 
+/**
+*@brief Port D init routine
+*/
 void init_port_d() {
-	//In this example, I assume there are 3 LED's available.
-	//PD2, PD3 and PD4
-
-	//remember that PD1 is the SWIM pin, so if we have an LED between this pin
-	//and ground, we can not flash the chip!
 
 	//set OutputDataRegister to 0 for all pins of PortD
 	PD_ODR = 0; //turn off all pins
@@ -26,10 +36,13 @@ void init_port_d() {
 	PD_CR1 |= 1 << 4; 
 }
 
+
+/**
+*@brief Delay routine for milliseconds for 16MHz clock.
+*The 960 comes from the number of instructions to perform the do/while loop
+*to figure it out, have a look at the generated ASM file after compilation
+*/
 void delay_ms(unsigned long ms) {
-	//The best naive delay @16MHz
-	//the 960 comes from the number of instructions to perform the do/while loop
-	//to figure it out, have a look at the generated ASM file after compilation
 	unsigned long cycles = 960 * ms;
 	int i = 0;
 	do
@@ -39,11 +52,17 @@ void delay_ms(unsigned long ms) {
 	while(cycles > 0);
 }
 
+/**
+*@brief Toggle PortD pins.
+*/
 void toggle_port_d_pin(unsigned int pin) {
 	PD_ODR ^= 1 << pin;
 }
 
 
+/**
+*@brief Main function.
+*/
 int main() {
 	init_clk();
 	init_port_d();
@@ -57,7 +76,7 @@ int main() {
 		delay_ms(1000);
 		toggle_port_d_pin(4);
 		toggle_port_d_pin(3);
-		delay_ms(1000);		
+		delay_ms(1000);
 		toggle_port_d_pin(3);
 	}
 }
