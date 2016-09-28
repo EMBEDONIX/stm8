@@ -10,3 +10,5 @@ bin/
 *.sym
 *.asm
 *.ihx
+*.cdb
+*.lk

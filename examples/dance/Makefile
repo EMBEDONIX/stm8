@@ -15,7 +15,7 @@ CC = sdcc
 PLATFORM = stm8
 
 #Product name
-PNAME = blink
+PNAME = dance
 
 #Folders **** MAKE SURE TO CHANGE ACCORDING TO YOUR STRUCTURE!!! ****
 #Output directory for intermediate and final compiled file(s)
