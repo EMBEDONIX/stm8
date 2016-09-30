@@ -13,8 +13,7 @@
 *@brief Port D init routine
 */
 void init_gpio() {
-	GPIO_Set_Pins_Dir(&PD_DDR, GPIO_PIN_3, PIN_DIR_OUT);
-	GPIO_Set_CR1(&PD_CR1, GPIO_PIN_3, PIN_MODE_PP);
+	GPIO_Config_Pin(GPIO_PORT_D, GPIO_PIN_3, PIN_MODE_OUTPUT_PP);
 }
 
 /**
@@ -26,11 +25,11 @@ int main() {
 
 	//main loop
 	while(1) {
-		GPIO_Toggle_Pin(&PD_ODR, GPIO_PIN_3);
+		GPIO_Toggle_Pin(GPIO_PORT_D, GPIO_PIN_3);
 		CLK_Delay_ms(1000);
-		GPIO_Toggle_Pin(&PD_ODR, GPIO_PIN_3);
+		GPIO_Toggle_Pin(GPIO_PORT_D, GPIO_PIN_3);
 		CLK_Delay_ms(500);
-		GPIO_Toggle_Pin(&PD_ODR, GPIO_PIN_3);
+		GPIO_Toggle_Pin(GPIO_PORT_D, GPIO_PIN_3);
 		CLK_Delay_ms(250);
 
 	}
