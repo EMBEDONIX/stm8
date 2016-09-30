@@ -94,47 +94,58 @@ unsigned int goForwardOff(leds_t* from, leds_t* to, unsigned int baseDelay,
 	return baseDelay;
 }
 
-unsigned int goBackwardOn(leds_t* from, leds_t* to, unsigned int baseDelay,
-	int delayInc){
-	leds_t* tmp = from;
-
-	do {
-		GPIO_Set_Pin_High(tmp->port, tmp->pin);
-		CLK_Delay_ms(baseDelay += delayInc);
-		tmp = tmp->prev;
-	} while(tmp != to->next);
-
-	return baseDelay;
-}
-
-unsigned int goBackwardOff(leds_t* from, leds_t* to, unsigned int baseDelay,
-	int delayInc){
-	leds_t* tmp = from;
-
-	do {
-		GPIO_Set_Pin_Low(tmp->port, tmp->pin);
-		CLK_Delay_ms(baseDelay += delayInc);
-		tmp = tmp->next;
-	} while(tmp != to->prev);	
-
-	return baseDelay;
-}
 
 void dance() {
 
-	volatile unsigned short delay = 200;
+	volatile unsigned short delay = 20;
 	while(delay < 1000) {
-		// goForwardToggling(head, tail, delay, 0);
-		// CLK_Delay_ms(200);
-		// goBackwardToggling(tail, head, delay, 0);
+		goForwardToggling(head, tail, delay, 0);
+		CLK_Delay_ms(100);
+		goBackwardToggling(tail, head, delay, 0);
+		CLK_Delay_ms(100);
+		goBackwardToggling(tail, head, delay, 0);
 		goForwardOn(head, tail, delay, 0);
-		CLK_Delay_ms(400);
-		goForwardOff(tail, head, delay, 0);
-		CLK_Delay_ms(400);
-		// CLK_Delay_ms(200);
-		// goBackwardOn(tail, head, delay, 0);
+		CLK_Delay_ms(100);
+		goForwardOff(head, tail, delay, 0);
+		CLK_Delay_ms(100);
+		// goForwardOn(head, tail, delay, 0);
+		// CLK_Delay_ms(400);
+
+		// GPIO_Set_Pin_High(GPIO_PORT_C, GPIO_PIN_3);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_C, GPIO_PIN_4);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_C, GPIO_PIN_5);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_C, GPIO_PIN_6);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_C, GPIO_PIN_7);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_D, GPIO_PIN_1);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_D, GPIO_PIN_2);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_High(GPIO_PORT_D, GPIO_PIN_3);
+
+		// CLK_Delay_ms(400);												
+
+		// GPIO_Set_Pin_Low(GPIO_PORT_C, GPIO_PIN_3);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_C, GPIO_PIN_4);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_C, GPIO_PIN_5);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_C, GPIO_PIN_6);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_C, GPIO_PIN_7);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_D, GPIO_PIN_1);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_D, GPIO_PIN_2);
+		// CLK_Delay_ms(100);
+		// GPIO_Set_Pin_Low(GPIO_PORT_D, GPIO_PIN_3);
 		
-		//delay+= 100;
+		// CLK_Delay_ms(400);		
 	}
 }
 

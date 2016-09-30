@@ -25,34 +25,8 @@ void GPIO_Config_Pin(gpio_port_t port, gpio_pin_t pins,
 									pins & 0x00;
 }
 
-// void GPIO_Set_Pins_Dir(unsigned char* p_ddr, unsigned char pins,
-// 			unsigned char direction) {
-// 	if(direction) {
-// 		*p_ddr = pins & 0xFF;
-// 	} else {
-// 		*p_ddr = pins & 0x00;
-// 	}
-// }
-// void GPIO_Set_CR1(unsigned char* p_cr1, unsigned char pins,
-// 			unsigned char mode) {
-// 	if(mode) { //push-pull = 1
-// 		*p_cr1 = pins & 0xFF;
-// 	} else {
-// 		*p_cr1 = pins & 0x00; 
-// 	}
-// }
-// void GPIO_Set_CR2(unsigned char* p_cr2, unsigned char pins,
-// 			unsigned char val) {
-// 	//TODO implement
-// 	if(val) { //push-pull = 1
-// 		*p_cr2 = pins & 0xFF;
-// 	} else {
-// 		*p_cr2 = pins & 0x00; 
-// 	}	
-// }
-
 void GPIO_Set_Pin_High(gpio_port_t port, gpio_pin_t pins) {
-	*port |= pins & 0xFF;
+	*port |= pins;
 }
 void GPIO_Set_Pin_Low(gpio_port_t port, gpio_pin_t pins) {
 	*port &= ~(pins);
