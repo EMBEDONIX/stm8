@@ -15,7 +15,7 @@ CC = sdcc
 PLATFORM = stm8
 
 #Product name
-PNAME = dance
+PNAME = leddance
 
 #Folders **** MAKE SURE TO CHANGE ACCORDING TO YOUR STRUCTURE!!! ****
 #Output directory for intermediate and final compiled file(s)
@@ -30,7 +30,8 @@ MAINSRC = $(PNAME).c
 # These are the sources that must be compiled to .rel files:
 EXTRASRCS = \
 	$(SDIR)/gpio.c\
-	$(SDIR)/clock.c
+	$(SDIR)/clock.c\
+	$(SDIR)/dance.c
 
 # The list of .rel files can be derived from the list of their source files
 RELS = $(EXTRASRCS:.c=.rel)
@@ -41,7 +42,7 @@ LIBS     = -l$(PLATFORM)
 
 # This just provides the conventional target name "all"; it is optional
 # Note: I assume you set PNAME via some means not exhibited in your original file
-all: $(PNAME)
+all: clean $(PNAME)
 
 # How to build the overall program
 $(PNAME): $(MAINSRC) $(RELS)
@@ -67,5 +68,8 @@ clean:
 	@echo "Removing $(ODIR)..."
 	@rm -rf $(ODIR)
 	@echo "Done."
+
 flash:
+	@echo "Uploading resulted " $(PNAME)".ihx to target board..." 
 	stm8flash -cstlinkv2 -pstm8s003 -w$(ODIR)/$(PNAME).ihx
+	@echo "Flash completed."

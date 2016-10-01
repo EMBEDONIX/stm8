@@ -12,3 +12,6 @@ bin/
 *.ihx
 *.cdb
 *.lk
+
+#VSCode stuff
+*.json
