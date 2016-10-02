@@ -15,32 +15,25 @@
 #include "gpio.h"
 #include "dance.h"
 
-#define DELAY_RESET_VALUE	20;
+#define DELAY_RESET_VALUE	50;
 static int blink_delay;
 
+//pins on port C for leds 1 to 5
 unsigned char pinsC = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 
 			| GPIO_PIN_6 | GPIO_PIN_7;
+//pins on port D for leds 6 to 8			
 unsigned char pinsD = GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3;
 
-/**
-*@brief Port D init routine
-*/
+//set up leds
 void init_gpio() {
 
-	//set LED pins
+	//set defined pins as output push pull fast mode
 	GPIO_Config_Pin(GPIO_PORT_C, pinsC , PIN_MODE_OUTPUT_PP_FAST);
 	GPIO_Config_Pin(GPIO_PORT_D, pinsD , PIN_MODE_OUTPUT_PP_FAST);
 }
 
-/**
-*@brief Main function.
-*/
-int main() {
-	CLK_Init(CLK_SRC_HSI, 0x00, 0x00);
-	init_gpio();
-
-	//create LED structs
-
+//This function creates and allocates memory for leds data structure
+void init_leds_struct() {
 	//led 1 is our HEAD
 	d_head = DNC_Gen_Struct(GPIO_PORT_C, GPIO_PIN_3,
 		0 /* NO PREV */);
@@ -78,12 +71,28 @@ int main() {
 	d_head->next->next->next->next->next->next->next = d_tail;
 	d_tail->next = 0;
 	d_head->prev = 0;
+}
+
+/**
+*@brief Main function.
+*/
+int main() {
+	//setup clock with internal RC @ 16MHz
+	CLK_Init(CLK_SRC_HSI, 0x00, 0x00);
+	init_gpio();
+
+	//create LED structs
+	init_leds_struct();
 	
 	//main loop
 	while(1) {
 		//PERFORM DANCE!
+
+		//set the base delay
 		blink_delay = DELAY_RESET_VALUE;
 		
+		/* IT IS IMPORTANT NOT TO LET DELAY GO BELOW ZERO OTHERWISE IT OVERFLOWS*/
+
 		DNC_Toggling(d_head, d_tail, DANCE_DIR_FORWARD, 0, &blink_delay, 10, 0);
 		DNC_Toggling(d_tail, d_head, DANCE_DIR_BACKWARD, 0, &blink_delay, -5, 0);
 
@@ -91,7 +100,7 @@ int main() {
 		DNC_Off(d_tail, d_head, DANCE_DIR_BACKWARD, 0, &blink_delay, -5, 0);
 
 		DNC_AllOnOff(d_head, 10, &blink_delay, 2);
-		DNC_AllOffOn(d_head, 12, &blink_delay, -4);
+		DNC_AllOffOn(d_head, 14, &blink_delay, -4);
 		
 		DNC_Toggling(d_head, d_tail, DANCE_DIR_FORWARD, 0, &blink_delay, 10, 0);
 		DNC_Toggling(d_tail, d_head, DANCE_DIR_BACKWARD, 0, &blink_delay, -5, 0);
