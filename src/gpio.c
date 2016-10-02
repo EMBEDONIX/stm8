@@ -36,7 +36,9 @@ void GPIO_Toggle_Pin(gpio_port_t port, gpio_pin_t pins) {
 }
 
 unsigned char GPIO_Read_Pin(gpio_port_t port, gpio_pin_t pin) {
-	return ((*(port + GPIO_OFST_IDR)) & (1 << pin)) << pin;
+	//return ((*(port + GPIO_OFST_IDR)) & (1 << pin)) << pin;
+
+	return *(port + GPIO_OFST_IDR) & pin;
 }
 
 unsigned char GPIO_Read_Port(gpio_port_t port) {

@@ -36,7 +36,7 @@ void init_gpio() {
 *@brief Main function.
 */
 int main() {
-	CLK_Init(CLK_SRC_HSE, 0x00, 0x00);
+	CLK_Init(CLK_SRC_HSI, 0x00, 0x00);
 	init_gpio();
 
 	//create LED structs
