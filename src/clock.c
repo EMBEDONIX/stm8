@@ -1,5 +1,6 @@
 #include "clock.h"
 
+
 void CLK_Init(unsigned char clk_src, unsigned char ps
 	, unsigned char cpu_div) {
 	/*
@@ -41,9 +42,11 @@ void CLK_Init(unsigned char clk_src, unsigned char ps
 *to figure it out, have a look at the generated ASM file after compilation
 */
 void CLK_Delay_ms(unsigned long ms) {
-	unsigned long cycles = DELAY_CYCLES_MS_16 * ms;
+	unsigned long cycles = CLK_DELAY_CYCLES_MS_16 * ms;
 	volatile unsigned long int i = 0;
 	for(i = 0; i < cycles; i++) {
 		/* DO NOTHING BUT WASTE CYCLES */
 	}
 }
+
+

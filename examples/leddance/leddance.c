@@ -78,7 +78,7 @@ void init_leds_struct() {
 */
 int main() {
 	//setup clock with internal RC @ 16MHz
-	CLK_Init(CLK_SRC_HSI, 0x00, 0x00);
+	CLK_Init(CLK_SRC_HSI, CLK_HSI_DIV_TWO, CLK_CPU_DIV_MASTER_NONE);
 	init_gpio();
 
 	//create LED structs

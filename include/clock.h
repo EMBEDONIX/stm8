@@ -65,7 +65,9 @@
 * HighSpeed External Crystal
 */
 #define CLK_SRC_HSE	0xB4
-
+/**
+* Current Active Clock Source
+*/
 //////////////////HSI PRESCALERS////////////////////
 #define CLK_HSI_DIV_NONE					0x00 //00
 #define CLK_HSI_DIV_TWO						0x01 //01
@@ -83,17 +85,31 @@
 
 /******* DELAY CONSTANTS ***************/
 //only if used with provided implementation
-#define DELAY_CYCLES_MS_16	569
-#define DELAY_CYCLES_MS_08  	(DELAY_CYCLES_MS_16 / 2)
-#define DELAY_CYCLES_MS_04	(DELAY_CYCLES_MS_16 / 4)
-#define DELAY_CYCLES_MS_02	(DELAY_CYCLES_MS_16 / 8)
+#define CLK_DELAY_CYCLES_MS_16			(unsigned int)569
+#define CLK_DELAY_CYCLES_MS_08  		(unsigned int)(DELAY_CYCLES_MS_16 / 2)
+#define CLK_DELAY_CYCLES_MS_04			(unsigned int)(DELAY_CYCLES_MS_16 / 4)
+#define CLK_DELAY_CYCLES_MS_02			(unsigned int)(DELAY_CYCLES_MS_16 / 8)
+#define CLK_DELAY_CYCLES_MS_01			(unsigned int)(DELAY_CYCLES_MS_16 / 16)
 
 
 /********** FUNCTION PROTOTYPES *********/
+
+/**
+* @brief: This functions calculates necessary cycles for exact delay.
+*			This function should not be called by user! It will be called when
+*           clock is changed by user.
+* @retval: None
+*/
+static void CLK_Caluclate_Delay_Cycles();
+
+void CLK_Set_HSE_Freq(unsigned long freq);
+
 void CLK_Init(unsigned char clk_src, unsigned char ps
 	, unsigned char cpu_div);
 
 void CLK_Delay_ms(unsigned long ms);
+
+
 
 
 
