@@ -13,16 +13,17 @@ void GPIO_Config_Pin(gpio_port_t port, gpio_pin_t pins,
 	//DDR is the 3rd bit of pin_mode
 	((pin_mode & ( 1 << 2)) >> 2) == 1 ? 
 	*(port + GPIO_OFST_DDR) = pins & 0xFF :
-								pins & 0x00;
+	pins & 0x00;
 
 	//CR1 is the 2nd bit of pin_mode
 	((pin_mode & ( 1 << 1)) >> 1) == 1 ? 
 	*(port + GPIO_OFST_CR1) = pins & 0xFF :
-									pins & 0x00;
+	pins & 0x00;
+
 	//CR2 is the 1st bit of pin_mode
 	((pin_mode & ( 1 << 0)) >> 0) == 1 ? 
 	*(port + GPIO_OFST_CR2) = pins & 0xFF :
-									pins & 0x00;
+	pins & 0x00;
 }
 
 void GPIO_Set_Pin_High(gpio_port_t port, gpio_pin_t pins) {
