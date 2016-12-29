@@ -12,19 +12,15 @@ For compatibility with other STM8X (e.g. L) series of MCU's make sure the regist
 For tutorial on programming these examples on your MCU, please check the [guide to flashing stm8 on linux](http://embedonix.com/articles/linux/setting-up-development-and-programming-for-stm8-on-linux/).
 
 <hr />
-#Folder Structure
--<b>examples</b><br />
---<b>include</b><br />
----<b>stm8s003.h</b>&nbsp;&nbsp;&nbsp;&nbsp;definition of the registers and option bits based on the STM8S003F3 datasheet.<br />
----<b>Makefile</b>&nbsp;&nbsp;&nbsp;&nbsp;GNU Makefile. do 'make' to compile and 'make flash' to upload the binary file to target MCU<br />
---<b>blink</b><br />
----<b>blink.c</b>&nbsp;&nbsp;&nbsp;&nbsp;example for GPIO, seting pins HIGH, LOW or toggle them.<br />
----<b>Makefile</b>&nbsp;&nbsp;&nbsp;&nbsp;GNU Makefile. do 'make' to compile and 'make flash' to upload the binary file to target MCU<br />
---<b>uart</b><br />
----<b>Makefile</b>&nbsp;&nbsp;&nbsp;&nbsp;GNU Makefile. do 'make' to compile and 'make flash' to upload the binary file to target MCU<br />
----<b>uart.c</b>&nbsp;&nbsp;&nbsp;&nbsp;example for sending and receiving string from/to the UART1 peropheral.<br/>
--<b>resources</b>&nbsp;&nbsp;&nbsp;&nbsp;images for the repository which has nothing to do with actual examples.
-
+#Folders Structure
+-<b>examples</b>&nbsp;<i>Contains examples</i><br />
+--<b>blink</b>&nbsp;<i>Blinks an  LED</i><br />
+--<b>inputpooling</b>&nbsp;<i>Reads a pin configured as input and reacts by turning a LED on/off</i><br />
+--<b>leddance</b>&nbsp;<i>Uses the implemented dance routins to make appealing LED dancing ;)</i><br />
+--<b>uart</b>&nbsp;<i>A simple UART communication example that prints characters to serial</i><br />
+-<b>include</b>&nbsp;<i>Header files which contain constants, types and function declarations</i><br />
+-<b>include</b>&nbsp;<i>Used for store git repository, not important for users</i><br />
+-<b>src</b>&nbsp;<i>Contains function definitions</i><br />
 <hr />
 #How to use?
 Just go inside the 'examples' folder and see the source code for each example. Use the Make file to compile and flash the example on your own chip.
