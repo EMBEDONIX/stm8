@@ -33,7 +33,7 @@ typedef unsigned char	gpio_pin_t;
 #define GPIO_PIN_5		32
 #define GPIO_PIN_6		64
 #define GPIO_PIN_7		128
-#define GPIO_PIN_ALL	255
+#define GPIO_PIN_ALL		255
 
 /* ------------------- DIRECTOIN -------------- */
 #define PIN_DIR_IN	0
