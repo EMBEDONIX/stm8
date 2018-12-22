@@ -1,7 +1,4 @@
 
-# STM8S EXAMPLES
-
-
 <img src="resources/embedonix.jpg" width=64 height=64 align="right" />
 
 
@@ -9,7 +6,9 @@
 This repository is a collection of simple projects for STM8S003F3 to help you get started with this series of small, cheap but capable MCU's.
 
 
-![](./resources/board.jpg =192x192)
+<img src="resources/board.jpg" width=192 height=192 align="right" />
+
+
 # Hardware
 The examples in this repository are tested with a generic STM8S003F3P6 in TSSOP20 package. There is no reason they do not work on other packages.
 
