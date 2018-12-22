@@ -1,10 +1,10 @@
-[](resources/embedonix.jpg)
+[](./resources/embedonix.jpg =64x64)
 
 # STM8S Example Projects With [SDCC](http://sdcc.sourceforge.net/)
 This repository is a collection of simple projects for STM8S003F3 to help you get started with this series of small, cheap but capable MCU's.
 
 
-[](resources/board.jpg)
+[](./resources/board.jpg =192x192)
 # Hardware
 The examples in this repository are tested with a generic STM8S003F3P6 in TSSOP20 package. There is no reason they do not work on other packages.
 
