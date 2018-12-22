@@ -20,6 +20,7 @@ For tutorial on programming these examples on your MCU, please check the [guide 
 # Folders Structure
 
 - **examples**  Contains examples
+
 | File Name     |      Description      |
 |---------------|:---------------------:|
 | ***blink***        |   Blinks an  LED |
