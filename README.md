@@ -28,15 +28,15 @@ For tutorial on programming these examples on your MCU, please check the [guide 
 # How to use?
 
 Just go inside the 'examples' folder and see the source code for each example. Use the Make file to compile and flash the example on your own chip.
-<hr />
+
 # What's coming next?
 
 This is an ongoing project. I will try to add more examples, e.g. Timers, interruprs, SPI and I2C.
-<hr />
+
 # What can you do?
 
 If you have nice examples and projects, please contribiute to this repository.
-<hr />
+
 # Donations
 
 Your donations will make further development much faster! If you are interested to donate to EMBEDONIX (any amount even 1$ is welcome!) please visit [EMBEDONIX.COM](http://www.embedonix.com) and click on the paypal donate button!
