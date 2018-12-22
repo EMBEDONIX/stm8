@@ -1,4 +1,9 @@
-![](./resources/embedonix.jpg =64x64)
+
+# STM8S EXAMPLES
+
+
+<img src="resources/embedonix.jpg" width=64 height=64 align="right" />
+
 
 # STM8S Example Projects With [SDCC](http://sdcc.sourceforge.net/)
 This repository is a collection of simple projects for STM8S003F3 to help you get started with this series of small, cheap but capable MCU's.
