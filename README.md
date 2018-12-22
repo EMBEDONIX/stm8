@@ -20,10 +20,13 @@ For tutorial on programming these examples on your MCU, please check the [guide 
 # Folders Structure
 
 - **examples**  Contains examples
--- ***blink*** Blinks an  LED
--- ***inputpooling*** Reads a pin configured as input and reacts by turning a LED on/off
--- ***leddance*** Uses the implemented dance routins to make appealing LED dancing 
--- ***uart*** A simple UART communication example that prints characters to serial 
+| File Name     |      Description      |
+|---------------|:---------------------:|
+| ***blink***        |   Blinks an  LED |
+| ***inputpooling*** |   Reads a pin configured as input and reacts by turning a LED on/off  |   
+| ***leddance***     | Uses the implemented dance routins to make appealing LED dancing      |   
+|***uart***          |A simple UART communication example that prints characters to serial   |
+
 - **include** Header files which contain constants, types and function declarations
 - **include** Used for store git repository, not important for users
 - **src** Contains function definitions
