@@ -65,17 +65,15 @@
 /********** FUNCTION PROTOTYPES *********/
 
 /**
-* @brief: This functions calculates necessary cycles for exact delay.
-*			This function should not be called by user! It will be called when
-*           clock is changed by user.
+* @brief: The following functions calculate necessary cycles for exact delay.
+* This function should not be called by user! It will be called when clock is changed by user.
 * @retval: None
 */
-static void CLK_Caluclate_Delay_Cycles();
+//static void CLK_Calculate_Delay_Cycles();
 
 void CLK_Set_HSE_Freq(unsigned long freq);
 
-void CLK_Init(unsigned char clk_src, unsigned char ps
-	, unsigned char cpu_div);
+void CLK_Init(unsigned char clk_src, unsigned char ps, unsigned char cpu_div);
 
 /**
 * @brief: Delay for milliseconds

@@ -17,7 +17,8 @@ extern dance_t* d_head;
 extern dance_t* d_tail; 
 
 /**
-*@brief Generate a
+*@brief Generate an LED "dance" in the defined direction. Functions below
+* are helpers to turn different sets of LEDs on and off.
 *
 *
 */

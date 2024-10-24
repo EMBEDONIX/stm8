@@ -43,7 +43,7 @@ This is an ongoing project. I will try to add more examples, e.g. Timers, interr
 
 # What can you do?
 
-If you have nice examples and projects, please contribiute to this repository.
+If you have nice examples and projects, please contribute to this repository.
 
 # Donations
 
