@@ -4,6 +4,7 @@
 //In this example, I assume there is one LED's available on PD3
 */
 
+//#include "blink.h"
 #include "stm8s003.h"
 #include "gpio.h"
 #include "clock.h"

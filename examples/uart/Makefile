@@ -1,5 +1,5 @@
 PNAME = uart
-IDIR = ../include
+IDIR = ../../include
 ODIR = bin
 CC = sdcc
 CFLAGS = -I$(IDIR)
@@ -7,6 +7,7 @@ CFLAGS = -I$(IDIR)
 all:
 	mkdir -p $(ODIR)
 	$(CC) $(PNAME).c -lstm8 -mstm8 $(CFLAGS) --out-fmt-ihx -o"./$(ODIR)/"
+	packihx < bin/$(PNAME).ihx > bin/$(PNAME).hex
 
 .PHONY: clean
 

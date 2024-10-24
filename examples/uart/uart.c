@@ -1,3 +1,4 @@
+#include "clock.h"
 #include "stm8s003.h"
 #include <string.h> //for strlen()
 
@@ -28,8 +29,8 @@ int main() {
 	CLK_CKDIVR = 0x00;
 	CLK_PCKENR1 = 0xFF; // Enable peripherals
 
-	PC_DDR = 0x08; // Put TX line on
-	PC_CR1 = 0x08;
+	//PC_DDR = 0x08; // Put TX line on
+	//PC_CR1 = 0x08;
 
 	USART1_CR2 = USART_CR2_TEN; // Allow TX & RX
 	USART1_CR3 &= ~(USART_CR3_STOP1 | USART_CR3_STOP2); // 1 stop bit
